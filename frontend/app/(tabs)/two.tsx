@@ -6,26 +6,58 @@ import { Text, View } from '@/components/Themed';
 export default function TabTwoScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab Two</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/two.tsx" />
-    </View>
-  );
+      <View style={styles.header}>
+        <Text style={styles.headerText}>Header</Text>
+      </View>
+      <View style={styles.content}>
+        <View style={styles.leftColumn}>
+          <Text>Left Column</Text>
+        </View>
+        <View style={styles.rightColumn}>
+          <Text>Right Column</Text>
+        </View>
+      </View>
+      <View style={styles.footer}>
+        <Text style={styles.footerText}>Footer</Text>
+      </View>
+    </View>)
 }
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#f0f0f0',
   },
-  title: {
+  header: {
+    height: 80,
+    backgroundColor: 'skyblue',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  headerText: {
     fontSize: 20,
     fontWeight: 'bold',
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  content: {
+    flex: 1, // The content area will take up the remaining space
+    flexDirection: 'row', // Arrange left and right columns horizontally
+  },
+  leftColumn: {
+    flex: 1, // Left column takes 1/3 of the available width
+    backgroundColor: 'lightgreen',
+    padding: 10,
+  },
+  rightColumn: {
+    flex: 2, // Right column takes 2/3 of the available width
+    backgroundColor: 'lightyellow',
+    padding: 10,
+  },
+  footer: {
+    height: 60,
+    backgroundColor: 'lightgray',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footerText: {
+    fontSize: 16,
   },
 });
